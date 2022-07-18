@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "motosapp",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/duviermarin/development/motosapp/amplify/backend/api/motosapp/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    },
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    }
+  }
+}

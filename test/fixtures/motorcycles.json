@@ -1,0 +1,16 @@
+[
+    {
+        "name": "La morronga",
+        "brand": "Yamaha",
+        "model": "2012",
+        "image": "image.jpg",
+        "cylinderCapacity": 125
+    },
+    {
+        "name": "El bolido",
+        "brand": "AKT",
+        "model": "2008",
+        "image": "image.jpg",
+        "cylinderCapacity": 125
+    }
+]
