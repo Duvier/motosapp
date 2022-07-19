@@ -24,3 +24,5 @@ class MotorcycleError extends MotorcycleState {
   @override
   List<Object> get props => [message];
 }
+
+class MotorcycleSaved extends MotorcycleState {}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../shared/utils/navigate.dart';
 import '../atoms/button.dart';
 
 class DmNavigation extends StatelessWidget {
@@ -14,16 +15,12 @@ class DmNavigation extends StatelessWidget {
             Expanded(
               child: ButtonAtom(
                 text: 'Motos',
-                onPressed: () => _navigateTo(context, 'motorcycle'),
+                onPressed: () => navigateTo(context, 'motorcycles'),
               ),
             ),
           ],
         ),
       ],
     );
-  }
-
-  _navigateTo(BuildContext context, String routeName) {
-    Navigator.of(context).pushNamed(routeName);
   }
 }

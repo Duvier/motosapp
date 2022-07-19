@@ -12,7 +12,8 @@ class DashboardOrganism extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          SizedBox(height: 80.0),
+          Placeholder(fallbackHeight: 200.0),
+          SizedBox(height: 40.0),
           DmNavigation()
         ],
       ),

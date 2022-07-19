@@ -9,6 +9,7 @@ import 'package:motosapp/src/features/motorcycle/data/datasources/aws_data_sourc
     as _i2;
 import 'package:motosapp/src/features/motorcycle/data/models/motorcycle_model.dart'
     as _i4;
+import 'package:motosapp/src/shared/usescases/usecase.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -34,4 +35,9 @@ class MockAWSDataSource extends _i1.Mock implements _i2.AWSDataSource {
               returnValue: Future<List<_i4.MotorcycleModel>>.value(
                   <_i4.MotorcycleModel>[]))
           as _i3.Future<List<_i4.MotorcycleModel>>);
+  @override
+  _i3.Future<void> saveMotorcycle(_i5.ParamsMotorcycle? params) =>
+      (super.noSuchMethod(Invocation.method(#saveMotorcycle, [params]),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
 }

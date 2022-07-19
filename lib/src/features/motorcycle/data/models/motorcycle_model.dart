@@ -1,7 +1,10 @@
+import '../../../../../models/Motorcycle.dart';
 import '../../domain/entities/motorcycle_entity.dart';
 
 class MotorcycleModel extends MotorcycleEntity {
+  final String id;
   const MotorcycleModel({
+    required this.id,
     required super.name,
     required super.brand,
     required super.model,
@@ -11,6 +14,7 @@ class MotorcycleModel extends MotorcycleEntity {
 
   factory MotorcycleModel.fromJson(Map<String, dynamic> json) {
     return MotorcycleModel(
+      id: json['id'],
       name: json['name'],
       brand: json['brand'],
       model: json['model'],
@@ -22,8 +26,19 @@ class MotorcycleModel extends MotorcycleEntity {
   static List<MotorcycleModel> formListJson(List<dynamic> listJson){
     List<MotorcycleModel> motorcycles = [];
     for (var json in listJson) {
-      motorcycles.add(MotorcycleModel.fromJson(json));
+      motorcycles.add(MotorcycleModel.fromModelAmplify(json));
     }
     return motorcycles;
+  }
+
+  factory MotorcycleModel.fromModelAmplify(Motorcycle model){
+    return MotorcycleModel(
+      id: model.id,
+      name: model.name,
+      brand: model.brand,
+      model: model.model,
+      image: model.image ?? 'default.jpg',
+      cylinderCapacity: model.cylinderCapacity,
+    ); 
   }
 }

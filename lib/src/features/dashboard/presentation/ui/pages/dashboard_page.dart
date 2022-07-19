@@ -10,7 +10,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const H2(text: 'Hola 👋🏻'),
+        title: const H2(text: 'MotosApp 🏍'),
       ),
       body: const SafeArea(
         child: DashboardOrganism(),

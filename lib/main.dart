@@ -1,11 +1,14 @@
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'amplifyconfiguration.dart';
 import 'models/ModelProvider.dart';
 import './src/injection_container.dart' as di;
 import './src/routes/routes.dart';
+import 'src/features/motorcycle/presentation/bloc/motorcycle_bloc.dart';
+import 'src/injection_container.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +18,6 @@ void main() async {
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -41,11 +43,19 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MotosApp',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/',
-      routes: routes(context),
+    final routes = Routes(context);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => sl<MotorcycleBloc>()
+        )
+      ],
+      child: MaterialApp(
+        title: 'MotosApp',
+        theme: ThemeData(primarySwatch: Colors.blue),
+        initialRoute: '/',
+        routes: routes(),
+      ),
     );
   }
 }
