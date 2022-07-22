@@ -1,5 +1,6 @@
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,8 +37,10 @@ class _MyAppState extends State<MyApp> {
     try {
       await Amplify.configure(amplifyconfig);
     } on AmplifyAlreadyConfiguredException {
-      print(
+      if (kDebugMode) {
+        print(
           'Tried to reconfigure Amplify; this can occur when your app restarts on Android.');
+      }
     }
   }
 

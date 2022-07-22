@@ -6,10 +6,13 @@ import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:motosapp/models/Motorcycle.dart' as _i11;
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart'
     as _i7;
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart'
     as _i2;
+import 'package:motosapp/src/features/motorcycle/domain/usecases/delete_motorcycle_use_case.dart'
+    as _i10;
 import 'package:motosapp/src/features/motorcycle/domain/usecases/get_list_motorcycle_use_case.dart'
     as _i4;
 import 'package:motosapp/src/features/motorcycle/domain/usecases/save_motorcycle_use_case.dart'
@@ -71,6 +74,27 @@ class MockSaveMotorcycleUseCase extends _i1.Mock
   @override
   _i5.Future<_i3.Either<_i6.Failure, void>> call(
           _i8.ParamsMotorcycle? params) =>
+      (super.noSuchMethod(Invocation.method(#call, [params]),
+              returnValue: Future<_i3.Either<_i6.Failure, void>>.value(
+                  _FakeEither_1<_i6.Failure, void>()))
+          as _i5.Future<_i3.Either<_i6.Failure, void>>);
+}
+
+/// A class which mocks [DeleteMotorcycleUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDeleteMotorcycleUseCase extends _i1.Mock
+    implements _i10.DeleteMotorcycleUseCase {
+  MockDeleteMotorcycleUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.MotorcycleRepository get repository => (super.noSuchMethod(
+      Invocation.getter(#repository),
+      returnValue: _FakeMotorcycleRepository_0()) as _i2.MotorcycleRepository);
+  @override
+  _i5.Future<_i3.Either<_i6.Failure, void>> call(_i11.Motorcycle? params) =>
       (super.noSuchMethod(Invocation.method(#call, [params]),
               returnValue: Future<_i3.Either<_i6.Failure, void>>.value(
                   _FakeEither_1<_i6.Failure, void>()))

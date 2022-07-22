@@ -7,4 +7,5 @@ import '../entities/motorcycle_entity.dart';
 abstract class MotorcycleRepository {
   Future<Either<Failure, List<MotorcycleEntity>>> getListMotorcycles();
   Future<Either<Failure, void>> saveMotorcycle(ParamsMotorcycle params);
+  Future<Either<Failure, void>> deleteMotorcycle(String id);
 }

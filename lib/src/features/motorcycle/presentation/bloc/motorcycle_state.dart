@@ -2,14 +2,14 @@ part of 'motorcycle_bloc.dart';
 
 abstract class MotorcycleState extends Equatable {
   const MotorcycleState();
-  
   @override
   List<Object> get props => [];
 }
 
 class MotorcycleEmpty extends MotorcycleState {}
-
 class MotorcycleLoading extends MotorcycleState {}
+class MotorcycleSaved extends MotorcycleState {}
+class MotorcycleDeleted extends MotorcycleState {}
 
 class MotorcycleLoaded extends MotorcycleState {
   final List<MotorcycleEntity> motorcycles;
@@ -24,5 +24,3 @@ class MotorcycleError extends MotorcycleState {
   @override
   List<Object> get props => [message];
 }
-
-class MotorcycleSaved extends MotorcycleState {}

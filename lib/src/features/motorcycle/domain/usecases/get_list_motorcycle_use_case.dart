@@ -10,7 +10,8 @@ class GetListMotorcyclesUseCase extends UseCase<List<MotorcycleEntity>, NoParams
   GetListMotorcyclesUseCase({required this.repository});
 
   @override
-  Future<Either<Failure,List<MotorcycleEntity>>> call(NoParams params) {
-    return repository.getListMotorcycles();
+  Future<Either<Failure,List<MotorcycleEntity>>> call(NoParams params) async {
+    final modelRepo = await repository.getListMotorcycles();
+    return modelRepo;
   }
 }

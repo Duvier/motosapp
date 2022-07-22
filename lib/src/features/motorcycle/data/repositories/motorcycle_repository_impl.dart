@@ -31,4 +31,14 @@ class MotorcycleRepositoryImpl implements MotorcycleRepository {
     }
   }
   
+  @override
+  Future<Either<Failure, void>> deleteMotorcycle(String id) async {
+    try {
+      await awsDataSource.deleteMotorcycle(id);
+      return const Right(null);
+    } catch (e) {
+      return Left(ServerFailure());
+    }
+  }
+  
 }

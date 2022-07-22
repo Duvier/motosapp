@@ -23,14 +23,6 @@ class MotorcycleModel extends MotorcycleEntity {
     );
   }
 
-  static List<MotorcycleModel> formListJson(List<dynamic> listJson){
-    List<MotorcycleModel> motorcycles = [];
-    for (var json in listJson) {
-      motorcycles.add(MotorcycleModel.fromModelAmplify(json));
-    }
-    return motorcycles;
-  }
-
   factory MotorcycleModel.fromModelAmplify(Motorcycle model){
     return MotorcycleModel(
       id: model.id,
@@ -41,4 +33,21 @@ class MotorcycleModel extends MotorcycleEntity {
       cylinderCapacity: model.cylinderCapacity,
     ); 
   }
+
+  static List<MotorcycleModel> formListAmplifyModels(List<dynamic> listJson){
+    List<MotorcycleModel> motorcycles = [];
+    for (var json in listJson) {
+      motorcycles.add(MotorcycleModel.fromModelAmplify(json));
+    }
+    return motorcycles;
+  }
+  
+  static List<MotorcycleModel> formListJson(List<dynamic> listJson){
+    List<MotorcycleModel> motorcycles = [];
+    for (var json in listJson) {
+      motorcycles.add(MotorcycleModel.fromJson(json));
+    }
+    return motorcycles;
+  }
+
 }

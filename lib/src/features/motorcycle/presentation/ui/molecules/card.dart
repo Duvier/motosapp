@@ -50,6 +50,6 @@ class CardMolecule extends StatelessWidget {
   }
   
   _delete(BuildContext context) {
-    BlocProvider.of<MotorcycleBloc>(context).add(DeleteMotorcycleEvent(motorcycle.brand));
+    // BlocProvider.of<MotorcycleBloc>(context).add(DeleteMotorcycleEvent(motorcycle.id));
   }
 }

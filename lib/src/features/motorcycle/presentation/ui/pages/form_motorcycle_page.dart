@@ -12,7 +12,7 @@ class FormMotorcyclePage extends StatelessWidget {
         elevation: 0.0,
         title: const Text('Agregar una moto'),
       ),
-      body: AddMotorcycle(),
+      body: const AddMotorcycle(),
     );
   }
 }

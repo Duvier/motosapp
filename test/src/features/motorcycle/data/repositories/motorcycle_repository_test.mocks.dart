@@ -5,6 +5,7 @@
 import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:motosapp/models/ModelProvider.dart' as _i6;
 import 'package:motosapp/src/features/motorcycle/data/datasources/aws_data_source.dart'
     as _i2;
 import 'package:motosapp/src/features/motorcycle/data/models/motorcycle_model.dart'
@@ -38,6 +39,11 @@ class MockAWSDataSource extends _i1.Mock implements _i2.AWSDataSource {
   @override
   _i3.Future<void> saveMotorcycle(_i5.ParamsMotorcycle? params) =>
       (super.noSuchMethod(Invocation.method(#saveMotorcycle, [params]),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
+  @override
+  _i3.Future<void> deleteMotorcycle(_i6.Motorcycle? params) =>
+      (super.noSuchMethod(Invocation.method(#deleteMotorcycle, [params]),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
 }
