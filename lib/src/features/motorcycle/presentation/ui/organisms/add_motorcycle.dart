@@ -48,10 +48,12 @@ class _AddMotorcycleState extends State<AddMotorcycle> {
             listener: (context, state) {
               if (state is MotorcycleSaved) {
                 formMotorcycle.currentState?.reset();
-                const SnackBarSuccess(message: 'Registro guardado con éxito');
+                final snackBar = const SnackBarSuccess(message: 'Registro guardado con éxito').call();
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 Navigator.pop(context);
               } else if (state is MotorcycleError) {
-                const SnackBarError(message: 'Error al guardar');
+                final snackBar = const SnackBarError(message: 'Error al guardar').call();
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
               }
               BlocProvider.of<MotorcycleBloc>(context)
                   .add(GetListMotorcyclesEvent());

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../shared/ui/atmos/snack_bars_custom.dart';
 import '../../bloc/motorcycle_bloc.dart';
 import '../molecules/btn_add.dart';
 import '../molecules/card.dart';
@@ -17,7 +18,18 @@ class ListMotorcyclesOrganism extends StatelessWidget {
           const BtnAdd(),
           const SizedBox(height: 5.0),
           Expanded(
-            child: BlocBuilder<MotorcycleBloc, MotorcycleState>(
+            child: BlocConsumer<MotorcycleBloc, MotorcycleState>(
+              listenWhen: (context, state) => state is MotorcycleDeleted || state is MotorcycleError,
+              listener: (context, state) {
+                if (state is MotorcycleDeleted) {
+                  final snackBar = const SnackBarSuccess(message: 'Registro eliminado con éxito').call();
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  BlocProvider.of<MotorcycleBloc>(context).add(GetListMotorcyclesEvent());
+                } else if (state is MotorcycleError) {
+                  final snackBar = const SnackBarError( message: 'Error al eliminar').call();
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                }
+              },
               builder: (context, state) {
                 if (state is MotorcycleEmpty) {
                   return const Center(
@@ -39,7 +51,7 @@ class ListMotorcyclesOrganism extends StatelessWidget {
                 } else if (state is MotorcycleError) {
                   return Center(child: Text(state.message));
                 }
-                return const Center(child: Text('Por defecto'));
+                return const Center(child: Text('MotosApp'));
               },
             ),
           ),

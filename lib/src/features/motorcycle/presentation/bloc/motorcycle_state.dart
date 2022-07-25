@@ -7,8 +7,11 @@ abstract class MotorcycleState extends Equatable {
 }
 
 class MotorcycleEmpty extends MotorcycleState {}
+
 class MotorcycleLoading extends MotorcycleState {}
+
 class MotorcycleSaved extends MotorcycleState {}
+
 class MotorcycleDeleted extends MotorcycleState {}
 
 class MotorcycleLoaded extends MotorcycleState {

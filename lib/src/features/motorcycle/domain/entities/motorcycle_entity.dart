@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class MotorcycleEntity extends Equatable {
+  final String id;
   final String name;
   final String brand;
   final String model;
@@ -8,6 +9,7 @@ class MotorcycleEntity extends Equatable {
   final int cylinderCapacity;
 
   const MotorcycleEntity({
+    required this.id,
     required this.name,
     required this.brand,
     required this.model,

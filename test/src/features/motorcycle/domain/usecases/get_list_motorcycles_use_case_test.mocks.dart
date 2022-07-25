@@ -6,7 +6,6 @@ import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:motosapp/models/Motorcycle.dart' as _i8;
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart'
     as _i6;
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart'
@@ -44,6 +43,14 @@ class MockMotorcycleRepository extends _i1.Mock
               _FakeEither_0<_i5.Failure, List<_i6.MotorcycleEntity>>())) as _i4
           .Future<_i2.Either<_i5.Failure, List<_i6.MotorcycleEntity>>>);
   @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.MotorcycleEntity>> getMotorcycle(
+          String? id) =>
+      (super.noSuchMethod(Invocation.method(#getMotorcycle, [id]),
+              returnValue:
+                  Future<_i2.Either<_i5.Failure, _i6.MotorcycleEntity>>.value(
+                      _FakeEither_0<_i5.Failure, _i6.MotorcycleEntity>()))
+          as _i4.Future<_i2.Either<_i5.Failure, _i6.MotorcycleEntity>>);
+  @override
   _i4.Future<_i2.Either<_i5.Failure, void>> saveMotorcycle(
           _i7.ParamsMotorcycle? params) =>
       (super.noSuchMethod(Invocation.method(#saveMotorcycle, [params]),
@@ -51,9 +58,8 @@ class MockMotorcycleRepository extends _i1.Mock
                   _FakeEither_0<_i5.Failure, void>()))
           as _i4.Future<_i2.Either<_i5.Failure, void>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> deleteMotorcycle(
-          _i8.Motorcycle? model) =>
-      (super.noSuchMethod(Invocation.method(#deleteMotorcycle, [model]),
+  _i4.Future<_i2.Either<_i5.Failure, void>> deleteMotorcycle(String? id) =>
+      (super.noSuchMethod(Invocation.method(#deleteMotorcycle, [id]),
               returnValue: Future<_i2.Either<_i5.Failure, void>>.value(
                   _FakeEither_0<_i5.Failure, void>()))
           as _i4.Future<_i2.Either<_i5.Failure, void>>);

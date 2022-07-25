@@ -17,6 +17,15 @@ void main() {
   late MotorcycleRepository motorcycleRepository;
   late AWSDataSource mockAWSDataSource;
   const List<MotorcycleModel> listMotorcycleModel = [];
+  const id = 'id';
+  const model = MotorcycleModel(
+    id: 'id',
+    name: 'La morronga',
+    brand: 'Yamaha',
+    model: '2012',
+    image: 'image.jpg',
+    cylinderCapacity: 125,
+  );
   const params = ParamsMotorcycle(
     name: 'La morronga',
     brand: 'Yamaha',
@@ -66,6 +75,27 @@ void main() {
       .thenThrow(ServerException());
       // act
       final result = await motorcycleRepository.saveMotorcycle(params);
+      // assert
+      expect(result, equals(Left(ServerFailure())));
+    });
+  });
+
+  group('Obtener una moto', () {
+    test('Debería retornar una moto cuando el llamado sea exitoso ', () async {
+      // arrange
+      when(mockAWSDataSource.getMotorcycle(id))
+      .thenAnswer((_) async => model);
+      // act
+      final result = await motorcycleRepository.getMotorcycle(id);
+      // assert
+      expect(result, equals(const Right(model)));
+    });
+    test('Debería retornar un ServerFailure cuando el llamado sea fallido ', () async {
+      // arrange
+      when(mockAWSDataSource.getMotorcycle(id))
+      .thenThrow(ServerException());
+      // act
+      final result = await motorcycleRepository.getMotorcycle(id);
       // assert
       expect(result, equals(Left(ServerFailure())));
     });

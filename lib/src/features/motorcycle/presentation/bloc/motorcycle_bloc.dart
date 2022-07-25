@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../shared/usescases/usecase.dart';
-import '../../data/models/motorcycle_model.dart';
 import '../../domain/entities/motorcycle_entity.dart';
 import '../../domain/usecases/delete_motorcycle_use_case.dart';
 import '../../domain/usecases/get_list_motorcycle_use_case.dart';
@@ -33,11 +32,7 @@ class MotorcycleBloc extends Bloc<MotorcycleEvent, MotorcycleState> {
     failureOrMotorcycles.fold(
       (_) => emit(
           const MotorcycleError(message: 'Error al traer listado de motos')),
-      (motorcycles) {
-        // print('motorcycles en bloc');
-        // print(motorcycles.first);
-        emit(MotorcycleLoaded(motorcycles: motorcycles));
-      },
+      (motorcycles) => emit(MotorcycleLoaded(motorcycles: motorcycles)),
     );
   }
 
@@ -51,8 +46,7 @@ class MotorcycleBloc extends Bloc<MotorcycleEvent, MotorcycleState> {
     );
   }
 
-  _deleteMotorcycles(
-      DeleteMotorcycleEvent event, Emitter<MotorcycleState> emit) async {
+  _deleteMotorcycles(DeleteMotorcycleEvent event, Emitter<MotorcycleState> emit) async {
     emit(MotorcycleLoading());
     final failureOrMotorcycles = await deleteMotorcycleUseCase(event.id);
     failureOrMotorcycles.fold(

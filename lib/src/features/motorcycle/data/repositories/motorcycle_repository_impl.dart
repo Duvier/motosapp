@@ -41,4 +41,14 @@ class MotorcycleRepositoryImpl implements MotorcycleRepository {
     }
   }
   
+  @override
+  Future<Either<Failure, MotorcycleModel>> getMotorcycle(String id) async {
+    try {
+      final motorcycle = await awsDataSource.getMotorcycle(id);
+      return Right(motorcycle);
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
+  
 }

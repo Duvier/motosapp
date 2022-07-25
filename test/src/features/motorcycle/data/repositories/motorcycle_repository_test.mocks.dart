@@ -2,14 +2,13 @@
 // in motosapp/test/src/features/motorcycle/data/repositories/motorcycle_repository_test.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:motosapp/models/ModelProvider.dart' as _i6;
 import 'package:motosapp/src/features/motorcycle/data/datasources/aws_data_source.dart'
-    as _i2;
+    as _i3;
 import 'package:motosapp/src/features/motorcycle/data/models/motorcycle_model.dart'
-    as _i4;
+    as _i2;
 import 'package:motosapp/src/shared/usescases/usecase.dart' as _i5;
 
 // ignore_for_file: type=lint
@@ -22,28 +21,36 @@ import 'package:motosapp/src/shared/usescases/usecase.dart' as _i5;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 
+class _FakeMotorcycleModel_0 extends _i1.Fake implements _i2.MotorcycleModel {}
+
 /// A class which mocks [AWSDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAWSDataSource extends _i1.Mock implements _i2.AWSDataSource {
+class MockAWSDataSource extends _i1.Mock implements _i3.AWSDataSource {
   MockAWSDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.MotorcycleModel>> getListMotorcycles() =>
+  _i4.Future<List<_i2.MotorcycleModel>> getListMotorcycles() =>
       (super.noSuchMethod(Invocation.method(#getListMotorcycles, []),
-              returnValue: Future<List<_i4.MotorcycleModel>>.value(
-                  <_i4.MotorcycleModel>[]))
-          as _i3.Future<List<_i4.MotorcycleModel>>);
+              returnValue: Future<List<_i2.MotorcycleModel>>.value(
+                  <_i2.MotorcycleModel>[]))
+          as _i4.Future<List<_i2.MotorcycleModel>>);
   @override
-  _i3.Future<void> saveMotorcycle(_i5.ParamsMotorcycle? params) =>
+  _i4.Future<_i2.MotorcycleModel> getMotorcycle(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getMotorcycle, [id]),
+              returnValue:
+                  Future<_i2.MotorcycleModel>.value(_FakeMotorcycleModel_0()))
+          as _i4.Future<_i2.MotorcycleModel>);
+  @override
+  _i4.Future<void> saveMotorcycle(_i5.ParamsMotorcycle? params) =>
       (super.noSuchMethod(Invocation.method(#saveMotorcycle, [params]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
   @override
-  _i3.Future<void> deleteMotorcycle(_i6.Motorcycle? params) =>
-      (super.noSuchMethod(Invocation.method(#deleteMotorcycle, [params]),
+  _i4.Future<void> deleteMotorcycle(String? id) =>
+      (super.noSuchMethod(Invocation.method(#deleteMotorcycle, [id]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
 }

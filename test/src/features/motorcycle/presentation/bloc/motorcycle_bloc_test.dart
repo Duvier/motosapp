@@ -20,6 +20,7 @@ void main() {
   late DeleteMotorcycleUseCase mockDeleteUseCase;
   late MotorcycleBloc bloc;
   const List<MotorcycleEntity> listMotorcycles = [];
+  const id = 'id';
   const params = ParamsMotorcycle(
     name: 'La Morronga',
     brand: 'Yamaha',
@@ -121,7 +122,7 @@ void main() {
     test('Debería emitir Cargando y Error cuando falle la acción de eliminar',
         () {
       // arrange
-      when(mockDeleteUseCase(model))
+      when(mockDeleteUseCase(id))
           .thenAnswer((_) async => Left(ServerFailure()));
       final expect = [
         MotorcycleLoading(),
@@ -130,12 +131,12 @@ void main() {
       // assert later
       expectLater(bloc.stream, emitsInOrder(expect));
       // act
-      bloc.add(DeleteMotorcycleEvent(model));
+      bloc.add(const DeleteMotorcycleEvent(id));
     });
     test('Debería emitir Cargando y Deleted cuando elimine correctamente la moto',
         () {
       // arrange
-      when(mockDeleteUseCase(model))
+      when(mockDeleteUseCase(id))
           .thenAnswer((_) async => const Right(null));
       final expect = [
         MotorcycleLoading(),
@@ -144,7 +145,8 @@ void main() {
       // assert later
       expectLater(bloc.stream, emitsInOrder(expect));
       // act
-      bloc.add(DeleteMotorcycleEvent(model));
+      bloc.add(const DeleteMotorcycleEvent(id));
     });
   });
+
 }

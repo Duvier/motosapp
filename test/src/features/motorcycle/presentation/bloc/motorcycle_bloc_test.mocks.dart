@@ -6,7 +6,6 @@ import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:motosapp/models/Motorcycle.dart' as _i11;
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart'
     as _i7;
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart'
@@ -94,7 +93,7 @@ class MockDeleteMotorcycleUseCase extends _i1.Mock
       Invocation.getter(#repository),
       returnValue: _FakeMotorcycleRepository_0()) as _i2.MotorcycleRepository);
   @override
-  _i5.Future<_i3.Either<_i6.Failure, void>> call(_i11.Motorcycle? params) =>
+  _i5.Future<_i3.Either<_i6.Failure, void>> call(String? params) =>
       (super.noSuchMethod(Invocation.method(#call, [params]),
               returnValue: Future<_i3.Either<_i6.Failure, void>>.value(
                   _FakeEither_1<_i6.Failure, void>()))

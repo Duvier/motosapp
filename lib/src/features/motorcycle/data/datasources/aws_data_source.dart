@@ -1,5 +1,4 @@
 import 'package:amplify_datastore/amplify_datastore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:motosapp/models/ModelProvider.dart';
 
@@ -10,6 +9,7 @@ import '../models/motorcycle_model.dart';
 abstract class AWSDataSource {
   /// Throws a [ServerException] for all error codes.
   Future<List<MotorcycleModel>> getListMotorcycles();
+  Future<MotorcycleModel> getMotorcycle(String id);
   Future<void> saveMotorcycle(ParamsMotorcycle params);
   Future<void> deleteMotorcycle(String id);
 }
@@ -22,13 +22,11 @@ class AWSDataSourceImpl implements AWSDataSource {
   @override
   Future<List<MotorcycleModel>> getListMotorcycles() async {
     try {
-      final motos = await amplify.query<Motorcycle>(Motorcycle.classType);
-      final models = MotorcycleModel.formListAmplifyModels(motos);
+      final motorcycles = await amplify.query<Motorcycle>(Motorcycle.classType);
+      final models = MotorcycleModel.formListAmplifyModels(motorcycles);
       return models;
     } catch (e) {
-      if (kDebugMode) {
-        print(e);
-      }
+      if (kDebugMode) print(e);
       throw ServerException();
     }
   }
@@ -45,9 +43,7 @@ class AWSDataSourceImpl implements AWSDataSource {
       );
       await amplify.save(motorcycle);
     } catch (e) {
-      if (kDebugMode) {
-        print(e);
-      }
+      if (kDebugMode) print(e);
       throw ServerException();
     }
   }
@@ -56,9 +52,20 @@ class AWSDataSourceImpl implements AWSDataSource {
   Future<void> deleteMotorcycle(String id) async {
     try {
       final List<Motorcycle> motorcycleToDelete = await amplify.query<Motorcycle>(Motorcycle.classType, where: Motorcycle.ID.eq(id));
-      print(motorcycleToDelete);
       amplify.delete(motorcycleToDelete.first);
     } catch (e) {
+      if (kDebugMode) print(e);
+      throw ServerException();
+    }
+  }
+  
+  @override
+  Future<MotorcycleModel> getMotorcycle(String id) async {
+     try {
+      final motorcycle = await amplify.query<Motorcycle>(Motorcycle.classType, where: Motorcycle.ID.eq(id));
+      return MotorcycleModel.fromModelAmplify(motorcycle.first);
+    } catch (e) {
+      if (kDebugMode) print(e);
       throw ServerException();
     }
   }

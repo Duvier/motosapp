@@ -6,11 +6,11 @@ class SnackBarSuccess {
   final String message;
   const SnackBarSuccess({required this.message});
 
-  void call(BuildContext context) {
-    SnackBarBase(
+  SnackBar call() {
+    return SnackBarBase(
       content: Text(message),
       color: Colors.green,
-    );
+    ).call();
   }
 }
 
@@ -18,10 +18,10 @@ class SnackBarError {
   final String message;
   const SnackBarError({required this.message});
 
-  void call(BuildContext context) {
-    SnackBarBase(
+  SnackBar call() {
+    return SnackBarBase(
       content: Text(message),
       color: Colors.red,
-    );
+    ).call();
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../features/dashboard/presentation/ui/pages/dashboard_page.dart';
+import '../features/motorcycle/presentation/ui/pages/detail_motorcycle_page.dart';
 import '../features/motorcycle/presentation/ui/pages/form_motorcycle_page.dart';
 import '../features/motorcycle/presentation/ui/pages/list_motorcycles_page.dart';
 
@@ -13,6 +14,7 @@ class Routes {
       '/': (_) => const DashboardPage(),
       'motorcycles': (_) => const ListMotorcyclesPage(),
       'add_motorcycle': (_) => const FormMotorcyclePage(),
+      'detail_motorcycle': (_) => const DetailMotorcyclePage(),
     };
   }
 }

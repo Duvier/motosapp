@@ -23,6 +23,7 @@ class CardMolecule extends StatelessWidget {
         leading: const ImgAtom(),
         title: TitleAtom(name: motorcycle.name),
         subtitle: SubTitleAtom(model: motorcycle.brand),
+        onTap: () => _viewDetail(context, motorcycle.id),
         trailing: IconButton(
           onPressed: () => _delete(context),
           icon: const Icon(Icons.delete),
@@ -50,6 +51,10 @@ class CardMolecule extends StatelessWidget {
   }
   
   _delete(BuildContext context) {
-    // BlocProvider.of<MotorcycleBloc>(context).add(DeleteMotorcycleEvent(motorcycle.id));
+    BlocProvider.of<MotorcycleBloc>(context).add(DeleteMotorcycleEvent(motorcycle.id));
+  }
+  
+  _viewDetail(BuildContext context, String id) {
+    Navigator.of(context).pushNamed('detail_motorcycle', arguments: {'id': id});
   }
 }
