@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/motorcycle_entity.dart';
 import '../../bloc/motorcycle_bloc.dart';
-import '../atoms/img.dart';
+import '../../../../../shared/ui/atmos/img_circle.dart';
 import '../atoms/subtitle.dart';
 import '../atoms/title.dart';
 
@@ -17,10 +17,11 @@ class CardMolecule extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: ListTile(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
+          borderRadius: BorderRadius.circular(18.0),
         ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
         tileColor: Colors.blue,
-        leading: const ImgAtom(),
+        leading: const ImgCircleAtom(),
         title: TitleAtom(name: motorcycle.name),
         subtitle: SubTitleAtom(model: motorcycle.brand),
         onTap: () => _viewDetail(context, motorcycle.id),

@@ -1,42 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../bloc/motorcycle_detail_bloc.dart';
-import '../molecules/btn_add.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart';
+import 'package:motosapp/src/features/motorcycle/presentation/ui/molecules/detail_motorcycle_header.dart';
 
 class DetailMotorcycleOrganism extends StatelessWidget {
-  const DetailMotorcycleOrganism({Key? key}) : super(key: key);
+  final MotorcycleEntity motorcycle;
+  const DetailMotorcycleOrganism({Key? key, required this.motorcycle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          Expanded(
-            child: BlocBuilder<MotorcycleDetailBloc, MotorcycleDetailState>(
-              builder: (context, state) {
-                if (state is MotorcycleDetailEmpty) {
-                  return const Center(
-                    child: Text(
-                      'Aún no hay motos, agrega una usando el botón de la parte superiror para verla ene ste listado',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  );
-                } else if (state is MotorcycleDetailLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (state is MotorcycleDetailLoaded) {
-                  return Center(child: Text(state.motorcycle.name));
-                } else if (state is MotorcycleDetailError) {
-                  return Center(child: Text(state.message));
-                }
-                return const Center(child: Text('MotosApp'));
-              },
+    return Column(
+      children: [
+        DetailMotorcycleHeaderMolecule(motorcycle: motorcycle),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: Colors.white,
+            ),
+            margin: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(15.0),
+            child: ListView(
+              children: const [
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
+                Item(),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
+    );
+  }
+}
+
+class Item extends StatelessWidget {
+  const Item({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const ListTile(
+      title: Text('Nombre del mantenimiento'),
+      trailing: Text('3'),
     );
   }
 }

@@ -28,6 +28,20 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Medium.ttf
+        - asset: fonts/Montserrat-Light.ttf
+        - asset: fonts/Montserrat-ExtraLight.ttf
+        - asset: fonts/Montserrat-Thin.ttf
+        - asset: fonts/Montserrat-SemiBold.ttf
+        - asset: fonts/Montserrat-Bold.ttf
+        - asset: fonts/Montserrat-ExtraBold.ttf
+        - asset: fonts/Montserrat-Black.ttf
 
   assets:
     - assets/img/default.png
+    - assets/img/xtz.jpg
+    - assets/img/nkd.jpeg
