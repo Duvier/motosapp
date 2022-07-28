@@ -17,7 +17,7 @@ class DetailMotorcycleHeaderMolecule extends StatelessWidget {
         color: Colors.white,
       ),
       margin: const EdgeInsets.all(15.0),
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       alignment: Alignment.center,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,7 +26,6 @@ class DetailMotorcycleHeaderMolecule extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10.0),
               H4(text: motorcycle.name),
               const SizedBox(height: 07.0),
               InfoDetailAtom(label: 'Marca',value: motorcycle.brand),
@@ -40,7 +39,7 @@ class DetailMotorcycleHeaderMolecule extends StatelessWidget {
               ),
             ],
           ),
-          const ImgCircleAtom(radius: 55, edit: true),
+          const ImgCircleAtom(path: 'assets/img/xtz.jpg',radius: 60),
         ],
       ),
     );

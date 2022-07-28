@@ -8,6 +8,6 @@ class TitleAtom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return H4(text: name, textLight: true);
+    return H4(text: name);
   }
 }

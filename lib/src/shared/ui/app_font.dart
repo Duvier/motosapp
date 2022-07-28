@@ -1,4 +1,3 @@
 class AppFontFamily {
-  static const primary = 'Montserrat';
-  
+  static const primary = 'Poppins';
 }

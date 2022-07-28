@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:motosapp/models/Motorcycle.dart';
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/delete_motorcycle_use_case.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/get_list_motorcycle_use_case.dart';
@@ -22,14 +21,6 @@ void main() {
   const List<MotorcycleEntity> listMotorcycles = [];
   const id = 'id';
   const params = ParamsMotorcycle(
-    name: 'La Morronga',
-    brand: 'Yamaha',
-    model: '2012',
-    image: 'image.jpg',
-    cylinderCapacity: 125,
-  );
-  final model = Motorcycle(
-    id: 'id',
     name: 'La Morronga',
     brand: 'Yamaha',
     model: '2012',

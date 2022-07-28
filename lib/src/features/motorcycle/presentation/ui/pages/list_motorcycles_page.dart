@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../shared/ui/molecules/scaffold.dart';
 import '../../bloc/motorcycle_bloc.dart';
 import '../organisms/list_motorcycles.dart';
 
@@ -18,13 +19,14 @@ class _ListMotorcyclesPageState extends State<ListMotorcyclesPage> {
     BlocProvider.of<MotorcycleBloc>(context).add(GetListMotorcyclesEvent());
   }
   @override
+  void dispose() {
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        title: const Text('Listado de motos'),
-      ),
-      body: const ListMotorcyclesOrganism(),
+    return const ScaffoldMolecule(
+      titleAppBar: 'Listado de motos',
+      body: ListMotorcyclesOrganism(),
     );
   }
 }

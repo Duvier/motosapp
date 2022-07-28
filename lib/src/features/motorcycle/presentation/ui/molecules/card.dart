@@ -17,11 +17,11 @@ class CardMolecule extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: ListTile(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
+          borderRadius: BorderRadius.circular(15.0),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-        tileColor: Colors.blue,
-        leading: const ImgCircleAtom(),
+        tileColor: Colors.white,
+        leading: const ImgCircleAtom(path: 'assets/img/xtz.jpg'),
         title: TitleAtom(name: motorcycle.name),
         subtitle: SubTitleAtom(model: motorcycle.brand),
         onTap: () => _viewDetail(context, motorcycle.id),
