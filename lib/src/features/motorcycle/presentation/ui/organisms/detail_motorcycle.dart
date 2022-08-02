@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart';
-import 'package:motosapp/src/features/motorcycle/presentation/ui/molecules/detail_motorcycle_header.dart';
+
+import '../../../domain/entities/motorcycle_entity.dart';
+import '../atoms/card.dart';
+import '../molecules/detail_motorcycle_header.dart';
 
 class DetailMotorcycleOrganism extends StatelessWidget {
   final MotorcycleEntity motorcycle;
@@ -12,16 +14,22 @@ class DetailMotorcycleOrganism extends StatelessWidget {
     return Column(
       children: [
         DetailMotorcycleHeaderMolecule(motorcycle: motorcycle),
+        const SizedBox(height: 10.0),
         Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              color: Colors.white,
-            ),
-            margin: const EdgeInsets.all(15.0),
+          child: CardAtom(
             padding: const EdgeInsets.all(15.0),
             child: ListView(
               children: const [
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
+                Item(),
+                Divider(),
                 Item(),
                 Divider(),
                 Item(),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../shared/ui/molecules/scaffold.dart';
 import '../organisms/dashboard.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -8,8 +7,7 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScaffoldMolecule(
-      titleAppBar: 'MotosApp',
+    return const Scaffold(
       body: SafeArea(
         child: DashboardOrganism(),
       ),

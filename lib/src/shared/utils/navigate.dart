@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:motosapp/src/shared/extensions/push_named_if_not_current.dart';
 
-void navigateTo(BuildContext context, String routeName) {
-  // Navigator.of(context).pushNamed(routeName);
-  Navigator.of(context).pushNamedAndRemoveUntil(routeName, (route) => false);
+void navigateTo(BuildContext context, String routeName, [arguments]) {
+  Navigator.of(context).pushNamedIfNotCurrent(routeName, arguments);
 }

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../shared/ui/app_colors.dart';
+import '../../../../../shared/ui/navigator_keys.dart';
+import '../../../../../shared/utils/navigate.dart';
 import '../../../domain/entities/motorcycle_entity.dart';
 import '../../bloc/motorcycle_bloc.dart';
 import '../../../../../shared/ui/atmos/img_circle.dart';
 import '../atoms/subtitle.dart';
 import '../atoms/title.dart';
 
-class CardMolecule extends StatelessWidget {
+class ItemMotorcycleMolecule extends StatelessWidget {
   final MotorcycleEntity motorcycle;
-  const CardMolecule({Key? key, required this.motorcycle}) : super(key: key);
+  const ItemMotorcycleMolecule({Key? key, required this.motorcycle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class CardMolecule extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.0),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-        tileColor: Colors.white,
+        tileColor: AppColors.card,
         leading: const ImgCircleAtom(path: 'assets/img/xtz.jpg'),
         title: TitleAtom(name: motorcycle.name),
         subtitle: SubTitleAtom(model: motorcycle.brand),
@@ -31,24 +34,6 @@ class CardMolecule extends StatelessWidget {
         ),
       ),
     );
-    // return CardBaseAtom(
-    //   child: Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     children: [
-    //       const ImgAtom(),
-    //       const SizedBox(width: 15.0),
-    //       Column(
-    //         crossAxisAlignment: CrossAxisAlignment.start,
-    //         mainAxisAlignment: MainAxisAlignment.center,
-    //         children: [
-    //           TitleAtom(name: motorcycle.name),
-    //           SubTitleAtom(model: motorcycle.brand),
-    //         ],
-    //       ),
-    //       const IconButton(onPressed: null, icon: Icon(Icons.delete))
-    //     ],
-    //   ),
-    // );
   }
   
   _delete(BuildContext context) {
@@ -56,6 +41,6 @@ class CardMolecule extends StatelessWidget {
   }
   
   _viewDetail(BuildContext context, String id) {
-    Navigator.of(context).pushNamed('detail_motorcycle', arguments: {'id': id});
+    navigateTo(NavigatorKeys.bottomNavigationBarFirstItem.currentContext ?? context, 'detail_motorcycle', {'id': id});
   }
 }

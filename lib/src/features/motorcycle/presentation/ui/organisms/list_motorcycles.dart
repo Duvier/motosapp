@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../shared/ui/atmos/snack_bars_custom.dart';
 import '../../bloc/motorcycle_bloc.dart';
-import '../molecules/card.dart';
+import '../molecules/item_motorcycle.dart';
 
 class ListMotorcyclesOrganism extends StatelessWidget {
   const ListMotorcyclesOrganism({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class ListMotorcyclesOrganism extends StatelessWidget {
                   return ListView.builder(
                     itemCount: state.motorcycles.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return CardMolecule(motorcycle: state.motorcycles[index]);
+                      return ItemMotorcycleMolecule(motorcycle: state.motorcycles[index]);
                     },
                   );
                 } else if (state is MotorcycleError) {

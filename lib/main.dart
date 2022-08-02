@@ -7,9 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'amplifyconfiguration.dart';
 import 'models/ModelProvider.dart';
 import './src/injection_container.dart' as di;
-import './src/routes/routes.dart';
 import 'src/features/motorcycle/presentation/bloc/motorcycle_bloc.dart';
 import 'src/injection_container.dart';
+import 'src/shared/ui/app_colors.dart';
+import 'src/shared/ui/molecules/scaffold.dart';
+import 'src/shared/ui/navigator_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,25 +41,24 @@ class _MyAppState extends State<MyApp> {
     } on AmplifyAlreadyConfiguredException {
       if (kDebugMode) {
         print(
-          'Tried to reconfigure Amplify; this can occur when your app restarts on Android.');
+            'Tried to reconfigure Amplify; this can occur when your app restarts on Android.');
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final routes = Routes(context);
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => sl<MotorcycleBloc>()
-        )
-      ],
+      providers: [BlocProvider(create: (context) => sl<MotorcycleBloc>())],
       child: MaterialApp(
         title: 'MotosApp',
-        theme: ThemeData(primarySwatch: Colors.blue),
-        initialRoute: '/',
-        routes: routes(),
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          backgroundColor: AppColors.background,
+          scaffoldBackgroundColor: AppColors.background,
+        ),
+        home: const ScaffoldMolecule(),
+        navigatorKey: NavigatorKeys.navigatorKeyMain,
       ),
     );
   }

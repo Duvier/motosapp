@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../shared/ui/app_colors.dart';
+
 class InputAtom extends StatelessWidget {
   final String hintText;
   final String labelText;
@@ -22,13 +24,24 @@ class InputAtom extends StatelessWidget {
       keyboardType: keyboardType,
       validator: validator,
       decoration: InputDecoration(
+        filled: true,
+        fillColor:const Color.fromARGB(255, 248, 248, 248),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 10.0,
           horizontal: 15.0,
         ),
         hintText: hintText,
         labelText: labelText,
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(width: 0.5, color: AppColors.primary),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(width: 0.5),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
         border: OutlineInputBorder(
+          borderSide: const BorderSide(width: 0.5),
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),

@@ -15,7 +15,7 @@ class InfoDetailAtom extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Label(text: label),
-        const SizedBox(height: 05.0),
+        // const SizedBox(height: 05.0),
         H6(text: value),
       ],
     );
