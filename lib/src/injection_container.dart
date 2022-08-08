@@ -23,9 +23,7 @@ Future<void> init() async {
     ),
   );
   sl.registerFactory(
-    () => MotorcycleDetailBloc(
-      getMotorcycleUseCase: sl(),
-    ),
+    () => MotorcycleDetailBloc(getMotorcycleUseCase: sl()),
   );
   // Use Cases
   sl.registerLazySingleton(() => GetMotorcycleUseCase(repository: sl()));
@@ -34,9 +32,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => DeleteMotorcycleUseCase(repository: sl()));
   // Repository
   sl.registerLazySingleton<MotorcycleRepository>(
-      () => MotorcycleRepositoryImpl(awsDataSource: sl()));
+    () => MotorcycleRepositoryImpl(awsDataSource: sl())
+  );
   // DataSource
   sl.registerLazySingleton<AWSDataSource>(() => AWSDataSourceImpl());
-
   //! Shared
 }
