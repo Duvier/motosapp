@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motosapp/src/shared/utils/navigate.dart';
 
+import '../../../router/routes.dart';
 import '../navigator_keys.dart';
 
 class BottomBarMolecule extends StatelessWidget {
@@ -24,12 +25,20 @@ class BottomBarMolecule extends StatelessWidget {
             IconButton(
               iconSize: 30.0,
               icon: const Icon(Icons.home),
-              onPressed: () => navigateTo(NavigatorKeys.bottomNavigationBarFirstItem.currentContext ?? context, '/'),
+              onPressed: () => navigateTo(
+                NavigatorKeys.bottomNavigationBarFirstItem.currentContext ??
+                    context,
+                Routes.home,
+              ),
             ),
             IconButton(
               iconSize: 30.0,
               icon: const Icon(Icons.two_wheeler),
-              onPressed: () => navigateTo(NavigatorKeys.bottomNavigationBarFirstItem.currentContext ?? context, 'motorcycles'),
+              onPressed: () => navigateTo(
+                NavigatorKeys.bottomNavigationBarFirstItem.currentContext ??
+                    context,
+                Routes.motorcycles,
+              ),
             ),
             const SizedBox(width: 30.0),
             const IconButton(

@@ -180,8 +180,12 @@ class Motorcycle extends Model {
   Map<String, dynamic> toJson() => {
     'id': id, 'name': _name, 'brand': _brand, 'model': _model, 'image': _image, 'cylinderCapacity': _cylinderCapacity, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
+  
+  Map<String, Object?> toMap() => {
+    'id': id, 'name': _name, 'brand': _brand, 'model': _model, 'image': _image, 'cylinderCapacity': _cylinderCapacity, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+  };
 
-  static final QueryField ID = QueryField(fieldName: "motorcycle.id");
+  static final QueryField ID = QueryField(fieldName: "id");
   static final QueryField NAME = QueryField(fieldName: "name");
   static final QueryField BRAND = QueryField(fieldName: "brand");
   static final QueryField MODEL = QueryField(fieldName: "model");
@@ -194,7 +198,7 @@ class Motorcycle extends Model {
     modelSchemaDefinition.authRules = [
       AuthRule(
         authStrategy: AuthStrategy.PUBLIC,
-        operations: const [
+        operations: [
           ModelOperation.CREATE,
           ModelOperation.UPDATE,
           ModelOperation.DELETE,
@@ -256,5 +260,10 @@ class _MotorcycleModelType extends ModelType<Motorcycle> {
   @override
   Motorcycle fromJson(Map<String, dynamic> jsonData) {
     return Motorcycle.fromJson(jsonData);
+  }
+  
+  @override
+  String modelName() {
+    return 'Motorcycle';
   }
 }

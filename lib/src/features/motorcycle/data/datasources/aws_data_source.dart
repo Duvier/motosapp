@@ -26,7 +26,7 @@ class AWSDataSourceImpl implements AWSDataSource {
       final models = MotorcycleModel.formListAmplifyModels(motorcycles);
       return models;
     } catch (e) {
-      if (kDebugMode) print(e);
+      if (kDebugMode) print('Error en DataSource $e');
       throw ServerException();
     }
   }

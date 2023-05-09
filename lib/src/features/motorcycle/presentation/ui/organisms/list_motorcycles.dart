@@ -21,14 +21,16 @@ class ListMotorcyclesOrganism extends StatelessWidget {
               listener: (context, state) {
                 if (state is MotorcycleDeleted) {
                   final snackBar = const SnackBarSuccess(
-                          message: 'Registro eliminado con éxito')
-                      .call();
+                    message: 'Registro eliminado con éxito',
+                  ).call();
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  BlocProvider.of<MotorcycleBloc>(context)
-                      .add(GetListMotorcyclesEvent());
+                  BlocProvider.of<MotorcycleBloc>(context).add(
+                    GetListMotorcyclesEvent(),
+                  );
                 } else if (state is MotorcycleError) {
-                  final snackBar =
-                      const SnackBarError(message: 'Error al eliminar').call();
+                  final snackBar = const SnackBarError(
+                    message: 'Error al eliminar',
+                  ).call();
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 }
               },
@@ -36,7 +38,7 @@ class ListMotorcyclesOrganism extends StatelessWidget {
                 if (state is MotorcycleEmpty) {
                   return const Center(
                     child: Text(
-                      'Aún no hay motos, agrega una usando el botón de la parte superiror para verla ene ste listado',
+                      'Aún no hay motos, agrega una usando el botón de la parte inferior',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black54),
                     ),
@@ -47,7 +49,9 @@ class ListMotorcyclesOrganism extends StatelessWidget {
                   return ListView.builder(
                     itemCount: state.motorcycles.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return ItemMotorcycleMolecule(motorcycle: state.motorcycles[index]);
+                      return ItemMotorcycleMolecule(
+                        motorcycle: state.motorcycles[index],
+                      );
                     },
                   );
                 } else if (state is MotorcycleError) {

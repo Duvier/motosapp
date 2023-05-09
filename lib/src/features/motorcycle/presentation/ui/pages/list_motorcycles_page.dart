@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:motosapp/src/shared/ui/molecules/scaffold.dart';
 
 import '../../bloc/motorcycle_bloc.dart';
 import '../organisms/list_motorcycles.dart';
@@ -23,7 +24,7 @@ class _ListMotorcyclesPageState extends State<ListMotorcyclesPage> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return const ScaffoldMolecule(
       body: ListMotorcyclesOrganism(),
     );
   }

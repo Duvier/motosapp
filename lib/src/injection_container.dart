@@ -10,31 +10,31 @@ import 'features/motorcycle/domain/usecases/save_motorcycle_use_case.dart';
 import 'features/motorcycle/presentation/bloc/motorcycle_bloc.dart';
 import 'features/motorcycle/presentation/bloc/motorcycle_detail_bloc.dart';
 
-final sl = GetIt.instance;
+final service_cotainer = GetIt.instance;
 
 Future<void> init() async {
   //! Features - Motorcycle
   // Bloc
-  sl.registerFactory(
+  service_cotainer.registerFactory(
     () => MotorcycleBloc(
-      saveMotorcyclesUseCase: sl(),
-      getListMotorcyclesUseCase: sl(),
-      deleteMotorcycleUseCase: sl(),
+      saveMotorcyclesUseCase: service_cotainer(),
+      getListMotorcyclesUseCase: service_cotainer(),
+      deleteMotorcycleUseCase: service_cotainer(),
     ),
   );
-  sl.registerFactory(
-    () => MotorcycleDetailBloc(getMotorcycleUseCase: sl()),
+  service_cotainer.registerFactory(
+    () => MotorcycleDetailBloc(getMotorcycleUseCase: service_cotainer()),
   );
   // Use Cases
-  sl.registerLazySingleton(() => GetMotorcycleUseCase(repository: sl()));
-  sl.registerLazySingleton(() => GetListMotorcyclesUseCase(repository: sl()));
-  sl.registerLazySingleton(() => SaveMotorcycleUseCase(repository: sl()));
-  sl.registerLazySingleton(() => DeleteMotorcycleUseCase(repository: sl()));
+  service_cotainer.registerLazySingleton(() => GetMotorcycleUseCase(repository: service_cotainer()));
+  service_cotainer.registerLazySingleton(() => GetListMotorcyclesUseCase(repository: service_cotainer()));
+  service_cotainer.registerLazySingleton(() => SaveMotorcycleUseCase(repository: service_cotainer()));
+  service_cotainer.registerLazySingleton(() => DeleteMotorcycleUseCase(repository: service_cotainer()));
   // Repository
-  sl.registerLazySingleton<MotorcycleRepository>(
-    () => MotorcycleRepositoryImpl(awsDataSource: sl())
+  service_cotainer.registerLazySingleton<MotorcycleRepository>(
+    () => MotorcycleRepositoryImpl(awsDataSource: service_cotainer())
   );
   // DataSource
-  sl.registerLazySingleton<AWSDataSource>(() => AWSDataSourceImpl());
+  service_cotainer.registerLazySingleton<AWSDataSource>(() => AWSDataSourceImpl());
   //! Shared
 }

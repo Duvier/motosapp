@@ -31,13 +31,23 @@ class MotorcycleBloc extends Bloc<MotorcycleEvent, MotorcycleState> {
     final failureOrMotorcycles = await getListMotorcyclesUseCase(NoParams());
     failureOrMotorcycles.fold(
       (_) => emit(
-          const MotorcycleError(message: 'Error al traer listado de motos')),
-      (motorcycles) => emit(MotorcycleLoaded(motorcycles: motorcycles)),
+        const MotorcycleError(message: 'Error al traer listado de motos'),
+      ),
+      (motorcycles) {
+        if (motorcycles.isNotEmpty) {
+          return emit(
+            MotorcycleLoaded(motorcycles: motorcycles),
+          );
+        }
+        return emit(MotorcycleEmpty());
+      },
     );
   }
 
   _saveMotorcycles(
-      SaveMotorcyclesEvent event, Emitter<MotorcycleState> emit) async {
+    SaveMotorcyclesEvent event,
+    Emitter<MotorcycleState> emit,
+  ) async {
     emit(MotorcycleLoading());
     final failureOrMotorcycles = await saveMotorcyclesUseCase(event.params);
     failureOrMotorcycles.fold(
@@ -46,7 +56,8 @@ class MotorcycleBloc extends Bloc<MotorcycleEvent, MotorcycleState> {
     );
   }
 
-  _deleteMotorcycles(DeleteMotorcycleEvent event, Emitter<MotorcycleState> emit) async {
+  _deleteMotorcycles(
+      DeleteMotorcycleEvent event, Emitter<MotorcycleState> emit) async {
     emit(MotorcycleLoading());
     final failureOrMotorcycles = await deleteMotorcycleUseCase(event.id);
     failureOrMotorcycles.fold(

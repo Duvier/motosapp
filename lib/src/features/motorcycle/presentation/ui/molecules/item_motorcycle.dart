@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../shared/ui/app_colors.dart';
 import '../../../../../shared/ui/navigator_keys.dart';
@@ -12,7 +13,8 @@ import '../atoms/title.dart';
 
 class ItemMotorcycleMolecule extends StatelessWidget {
   final MotorcycleEntity motorcycle;
-  const ItemMotorcycleMolecule({Key? key, required this.motorcycle}) : super(key: key);
+  const ItemMotorcycleMolecule({Key? key, required this.motorcycle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +37,18 @@ class ItemMotorcycleMolecule extends StatelessWidget {
       ),
     );
   }
-  
+
   _delete(BuildContext context) {
-    BlocProvider.of<MotorcycleBloc>(context).add(DeleteMotorcycleEvent(motorcycle.id));
+    BlocProvider.of<MotorcycleBloc>(context)
+        .add(DeleteMotorcycleEvent(motorcycle.id));
   }
-  
+
   _viewDetail(BuildContext context, String id) {
-    navigateTo(NavigatorKeys.bottomNavigationBarFirstItem.currentContext ?? context, 'detail_motorcycle', {'id': id});
+    // GoRouter.of(context).pushNamed('detail_motorcycle', params: {'id': id});
+    navigateTo(
+      NavigatorKeys.bottomNavigationBarFirstItem.currentContext ?? context,
+      'detail_motorcycle',
+      {'id': id},
+    );
   }
 }
