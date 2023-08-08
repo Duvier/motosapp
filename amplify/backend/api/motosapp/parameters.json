@@ -1,6 +1,0 @@
-{
-  "AppSyncApiName": "motosapp",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-07-26T15:28:50.828Z"
-}

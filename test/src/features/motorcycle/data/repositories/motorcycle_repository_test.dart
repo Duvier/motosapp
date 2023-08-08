@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:motosapp/src/features/motorcycle/data/datasources/aws_data_source.dart';
+import 'package:motosapp/src/features/motorcycle/data/datasources/datasource.dart';
 import 'package:motosapp/src/features/motorcycle/data/models/motorcycle_model.dart';
 import 'package:motosapp/src/features/motorcycle/data/repositories/motorcycle_repository_impl.dart';
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart';
@@ -12,10 +12,10 @@ import 'package:motosapp/src/shared/usescases/usecase.dart';
 
 import 'motorcycle_repository_test.mocks.dart';
 
-@GenerateMocks([AWSDataSource])
+@GenerateMocks([DataSource])
 void main() {
   late MotorcycleRepository motorcycleRepository;
-  late AWSDataSource mockAWSDataSource;
+  late DataSource mockAWSDataSource;
   const List<MotorcycleModel> listMotorcycleModel = [];
   const id = 'id';
   const model = MotorcycleModel(
@@ -34,8 +34,8 @@ void main() {
     cylinderCapacity: 125,
   );
   setUp((){
-    mockAWSDataSource = MockAWSDataSource();
-    motorcycleRepository = MotorcycleRepositoryImpl(awsDataSource: mockAWSDataSource);
+    mockAWSDataSource = MockDataSource();
+    motorcycleRepository = MotorcycleRepositoryImpl(dataSource: mockAWSDataSource);
   });
   group('Obtener listado de motos', () {
     test('Debería retornar datos cuando el llamado sea exitoso ', () async {

@@ -1,4 +1,4 @@
-package com.example.motosapp
+package com.duvier.motosapp
 
 import io.flutter.embedding.android.FlutterActivity
 
