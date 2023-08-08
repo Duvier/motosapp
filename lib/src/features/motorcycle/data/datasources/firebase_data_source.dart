@@ -1,0 +1,70 @@
+import 'package:flutter/foundation.dart';
+
+import '../../../../shared/errors/exceptions.dart';
+import '../../../../shared/usescases/usecase.dart';
+import '../models/motorcycle_model.dart';
+import 'datasource.dart';
+
+class FirebaseDataSourceImpl implements DataSource {
+  // final AmplifyDataStore amplify;
+  // AWSDataSourceImpl({required this.amplify});
+
+  @override
+  Future<List<MotorcycleModel>> getListMotorcycles() async {
+    try {
+      // final motorcycles = await amplify.query<Motorcycle>(Motorcycle.classType);
+      // final models = MotorcycleModel.formListAmplifyModels(motorcycles);
+      return [];
+    } catch (e) {
+      if (kDebugMode) print('Error en DataSource $e');
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<void> saveMotorcycle(ParamsMotorcycle params) async {
+    try {
+      // final motorcycle = Motorcycle(
+      //   name: params.name,
+      //   brand: params.brand,
+      //   model: params.model,
+      //   image: params.image,
+      //   cylinderCapacity: params.cylinderCapacity,
+      // );
+      // await amplify.save(motorcycle);
+    } catch (e) {
+      if (kDebugMode) print(e);
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<void> deleteMotorcycle(String id) async {
+    try {
+      // final List<Motorcycle> motorcycleToDelete = await amplify.query<Motorcycle>(Motorcycle.classType, where: Motorcycle.ID.eq(id));
+      // amplify.delete(motorcycleToDelete.first);
+    } catch (e) {
+      if (kDebugMode) print(e);
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<MotorcycleModel> getMotorcycle(String id) async {
+    try {
+      return MotorcycleModel(
+        id: id,
+        name: 'name',
+        brand: 'brand',
+        model: 'model',
+        image: '',
+        cylinderCapacity: 125,
+      );
+      // final motorcycle = await amplify.query<Motorcycle>(Motorcycle.classType, where: Motorcycle.ID.eq(id));
+      // return MotorcycleModel.fromModelAmplify(motorcycle.first);
+    } catch (e) {
+      if (kDebugMode) print(e);
+      throw ServerException();
+    }
+  }
+}

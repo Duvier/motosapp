@@ -17,7 +17,7 @@ class DetailMotorcyclePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: BlocProvider<MotorcycleDetailBloc>(
-          create: (context) => service_cotainer<MotorcycleDetailBloc>()
+          create: (context) => serviceCotainer<MotorcycleDetailBloc>()
             ..add(GetMotorcycleDetailEvent(id: id)),
           child: const DetailMotorcycleOrganismBloc(),
         ),

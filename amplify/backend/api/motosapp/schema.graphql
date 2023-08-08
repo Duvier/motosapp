@@ -1,9 +1,0 @@
-type Motorcycle @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String!
-  brand: String!
-  model: String!
-  image: String
-  cylinderCapacity: Int!
-}
- 

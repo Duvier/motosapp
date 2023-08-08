@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "715486018549",
+    "project_id": "motosapp-759fd",
+    "storage_bucket": "motosapp-759fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715486018549:android:c23b810ed87090eba07ebc",
+        "android_client_info": {
+          "package_name": "com.duvier.motosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715486018549-7kdpjuec3vt5pbg65nkoi4gcjbacn5oa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.duvier.motosapp",
+            "certificate_hash": "c84f8ea63be9d134ab5c80de72f72712ed20e048"
+          }
+        },
+        {
+          "client_id": "715486018549-3a6d78kib7817i3l8p1hdutc2boaodhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxd_BG6KTl96ooFgyofVhWaSmDC0JDQq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715486018549-3a6d78kib7817i3l8p1hdutc2boaodhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

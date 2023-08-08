@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:motosapp/models/Motorcycle.dart';
 import 'package:motosapp/src/features/motorcycle/data/models/motorcycle_model.dart';
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart';
 
@@ -16,19 +15,8 @@ void main() {
     image: 'image.jpg',
     cylinderCapacity: 125,
   );
-  final modelAmplify = Motorcycle(
-    id: 'id',
-    name: 'La morronga',
-    brand: 'Yamaha',
-    model: '2012',
-    image: 'image.jpg',
-    cylinderCapacity: 125,
-  );
+  
   final listModel = [model, const MotorcycleModel(id:'id',name: 'El bolido', brand: 'AKT', model: '2008', image: 'image.jpg', cylinderCapacity: 125)];
-  final listModelAmplify = [
-    modelAmplify,
-    Motorcycle(id:'id',name: 'El bolido', brand: 'AKT', model: '2008', image: 'image.jpg', cylinderCapacity: 125),
-  ];
 
   test('Debería ser una subclase de MotorcycleEntity', () {
     // arrange
@@ -46,14 +34,6 @@ void main() {
     expect(result, model);
   });
   
-  test('Debería retornar un modelo a partir de un model amplify', () {
-    // arrange
-    // act
-    final result = MotorcycleModel.fromModelAmplify(modelAmplify);
-    // assert
-    expect(result, model);
-  });
-  
   test('Debería retornar un listado de modelos a partir de un json', () {
     // arrange
     final List<dynamic> jsonMap = json.decode(fixture('motorcycles.json'));
@@ -63,12 +43,4 @@ void main() {
     expect(result, listModel);
   });
   
-  test('Debería retornar un listado de modelos a partir de un json de modelos amplify', () {
-    // arrange
-    // act
-    final result = MotorcycleModel.formListAmplifyModels(listModelAmplify);
-    // assert
-    expect(result, listModel);
-  });
-
 }

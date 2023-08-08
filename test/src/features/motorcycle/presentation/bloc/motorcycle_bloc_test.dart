@@ -12,13 +12,26 @@ import 'package:motosapp/src/shared/usescases/usecase.dart';
 
 import 'motorcycle_bloc_test.mocks.dart';
 
-@GenerateMocks([GetListMotorcyclesUseCase, SaveMotorcycleUseCase, DeleteMotorcycleUseCase])
+@GenerateMocks([
+  GetListMotorcyclesUseCase,
+  SaveMotorcycleUseCase,
+  DeleteMotorcycleUseCase,
+])
 void main() {
   late GetListMotorcyclesUseCase mockGetListUseCase;
   late SaveMotorcycleUseCase mockSaveUseCase;
   late DeleteMotorcycleUseCase mockDeleteUseCase;
   late MotorcycleBloc bloc;
-  const List<MotorcycleEntity> listMotorcycles = [];
+  const List<MotorcycleEntity> listMotorcycles = [
+    MotorcycleEntity(
+      id: 'id',
+      name: 'name',
+      brand: 'brand',
+      model: 'model',
+      image: 'image',
+      cylinderCapacity: 250,
+    ),
+  ];
   const id = 'id';
   const params = ParamsMotorcycle(
     name: 'La Morronga',
@@ -46,13 +59,14 @@ void main() {
     // assert
     expect(bloc.state, MotorcycleEmpty());
   });
-  
+
   group('Traer listado de motos', () {
     test('Debería retornar datos del caso de uso GetListMotorcyclesUseCase',
         () {
       // arrange
-      when(mockGetListUseCase(NoParams()))
-          .thenAnswer((_) async => const Right(listMotorcycles));
+      when(mockGetListUseCase(NoParams())).thenAnswer(
+        (_) async => const Right(listMotorcycles),
+      );
       final expect = [
         MotorcycleLoading(),
         const MotorcycleLoaded(motorcycles: listMotorcycles),
@@ -93,11 +107,11 @@ void main() {
       // act
       bloc.add(const SaveMotorcyclesEvent(params));
     });
-    test('Debería emitir Cargando y Saved cuando guarde correctamente la nueva moto',
+    test(
+        'Debería emitir Cargando y Saved cuando guarde correctamente la nueva moto',
         () {
       // arrange
-      when(mockSaveUseCase(params))
-          .thenAnswer((_) async => const Right(null));
+      when(mockSaveUseCase(params)).thenAnswer((_) async => const Right(null));
       final expect = [
         MotorcycleLoading(),
         MotorcycleSaved(),
@@ -108,7 +122,7 @@ void main() {
       bloc.add(const SaveMotorcyclesEvent(params));
     });
   });
-  
+
   group('Eliminar moto', () {
     test('Debería emitir Cargando y Error cuando falle la acción de eliminar',
         () {
@@ -124,11 +138,11 @@ void main() {
       // act
       bloc.add(const DeleteMotorcycleEvent(id));
     });
-    test('Debería emitir Cargando y Deleted cuando elimine correctamente la moto',
+    test(
+        'Debería emitir Cargando y Deleted cuando elimine correctamente la moto',
         () {
       // arrange
-      when(mockDeleteUseCase(id))
-          .thenAnswer((_) async => const Right(null));
+      when(mockDeleteUseCase(id)).thenAnswer((_) async => const Right(null));
       final expect = [
         MotorcycleLoading(),
         MotorcycleDeleted(),
@@ -139,5 +153,4 @@ void main() {
       bloc.add(const DeleteMotorcycleEvent(id));
     });
   });
-
 }

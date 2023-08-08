@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../router/routes.dart';
-import '../../../routes/nested_screen.dart';
 import '../../utils/navigate.dart';
 // import '../app_colors.dart';
 import '../navigator_keys.dart';
