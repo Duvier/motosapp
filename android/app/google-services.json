@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "715486018549-tehjngb4d5qerl5se8pbke5knlt9sokp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.duvier.motosapp",
+            "certificate_hash": "45113325c97410b0e786c1108c87b5fcb7b795ea"
+          }
+        },
+        {
           "client_id": "715486018549-3a6d78kib7817i3l8p1hdutc2boaodhk.apps.googleusercontent.com",
           "client_type": 3
         }
