@@ -38,7 +38,7 @@ void main() {
     // arrange
     final List<dynamic> jsonMap = json.decode(fixture('motorcycles.json'));
     // act
-    final result = MotorcycleModel.formListJson(jsonMap);
+    final result = MotorcycleModel.fromListJson(jsonMap);
     // assert
     expect(result, listModel);
   });
