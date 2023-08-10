@@ -21,8 +21,26 @@ class MotorcycleModel extends MotorcycleEntity {
       cylinderCapacity: json['cylinderCapacity'],
     );
   }
+  factory MotorcycleModel.fromFirebase(Map<String, dynamic> json, String id) {
+    return MotorcycleModel(
+      id: id,
+      name: json['name'],
+      brand: json['brand'],
+      model: json['model'],
+      image: json['image'],
+      cylinderCapacity: json['cylinderCapacity'],
+    );
+  }
 
-  static List<MotorcycleModel> formListJson(List<dynamic> listJson) {
+  static List<MotorcycleModel> fromListFirebase(List<dynamic> listJson) {
+    List<MotorcycleModel> motorcycles = [];
+    for (final json in listJson) {
+      motorcycles.add(MotorcycleModel.fromFirebase(json.data(), json.id));
+    }
+    return motorcycles;
+  }
+  
+  static List<MotorcycleModel> fromListJson(List<dynamic> listJson) {
     List<MotorcycleModel> motorcycles = [];
     for (var json in listJson) {
       motorcycles.add(MotorcycleModel.fromJson(json));

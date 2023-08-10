@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 
-// import 'features/motorcycle/data/datasources/datasource.dart';
+import 'features/motorcycle/data/datasources/datasource.dart';
+import 'features/motorcycle/data/datasources/firebase_data_source.dart';
 import 'features/motorcycle/data/repositories/motorcycle_repository_impl.dart';
 import 'features/motorcycle/domain/repositories/motorcycle_repository.dart';
 import 'features/motorcycle/domain/usecases/delete_motorcycle_use_case.dart';
@@ -35,6 +36,6 @@ Future<void> init() async {
     () => MotorcycleRepositoryImpl(dataSource: serviceCotainer())
   );
   // DataSources
-  // serviceCotainer.registerLazySingleton<DataSource>(() => AWSDataSourceImpl());
+  serviceCotainer.registerLazySingleton<DataSource>(() => FirebaseDataSourceImpl());
   //! Shared
 }
