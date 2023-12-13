@@ -23,16 +23,15 @@ class ItemMotorcycleMolecule extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
         tileColor: AppColors.card,
         leading: const ImgCircleAtom(path: 'assets/img/xtz.jpg'),
         title: TitleAtom(name: motorcycle.name),
         subtitle: SubTitleAtom(model: motorcycle.brand),
         onTap: () => _viewDetail(context, motorcycle.id),
-        trailing: IconButton(
-          onPressed: () => _delete(context),
-          icon: const Icon(Icons.delete),
-        ),
+        // trailing: IconButton(
+        //   onPressed: () => _delete(context),
+        //   icon: const Icon(Icons.delete),
+        // ),
       ),
     );
   }

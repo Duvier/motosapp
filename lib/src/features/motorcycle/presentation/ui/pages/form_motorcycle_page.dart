@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../shared/ui/molecules/scaffold.dart';
 import '../organisms/add_motorcycle.dart';
 
 class FormMotorcyclePage extends StatelessWidget {
@@ -7,7 +8,7 @@ class FormMotorcyclePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return const ScaffoldMolecule(
       body: AddMotorcycle(),
     );
   }

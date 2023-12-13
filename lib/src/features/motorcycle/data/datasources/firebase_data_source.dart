@@ -55,16 +55,13 @@ class FirebaseDataSourceImpl implements DataSource {
   @override
   Future<MotorcycleModel> getMotorcycle(String id) async {
     try {
-      return MotorcycleModel(
-        id: id,
-        name: 'name',
-        brand: 'brand',
-        model: 'model',
-        image: '',
-        cylinderCapacity: 125,
-      );
-      // final motorcycle = await amplify.query<Motorcycle>(Motorcycle.classType, where: Motorcycle.ID.eq(id));
-      // return MotorcycleModel.fromModelAmplify(motorcycle.first);
+      MotorcycleModel motorcycle;
+      return await db.collection(collection).doc(id).get().then((value) {
+        motorcycle = MotorcycleModel.fromFirebase(value.data()!, value.id);
+        return motorcycle;
+      }).catchError((e) {
+        throw ServerException();
+      });
     } catch (e) {
       if (kDebugMode) print(e);
       throw ServerException();

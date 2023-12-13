@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../shared/ui/app_colors.dart';
+import '../../../../../shared/ui/atmos/card_base.dart';
 import '../../../../../shared/ui/atmos/img_circle.dart';
 import '../../../../../shared/ui/atmos/text_atom.dart';
 import '../../../domain/entities/motorcycle_entity.dart';
-import '../atoms/card.dart';
 import '../atoms/info_detail.dart';
 
 class DetailMotorcycleHeaderMolecule extends StatelessWidget {
@@ -13,8 +14,8 @@ class DetailMotorcycleHeaderMolecule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CardAtom(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+    return CardBaseAtom(
+      color: AppColors.primary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

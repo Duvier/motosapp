@@ -15,20 +15,20 @@ class AppBarMolecule extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
       // color: Colors.blue,
-      child: SafeArea(
+      child: const SafeArea(
         child: Row(
           children: [
-            const ImgCircleAtom(path: 'assets/img/profile.jpg' ,radius: 25),
-            const SizedBox(width: 15.0),
+            ImgCircleAtom(path: 'assets/img/profile.jpg', radius: 25),
+            SizedBox(width: 15.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Label(text: 'Hola de nuevo 👋'),
                 H3(text: 'Duvier Marin'),
               ],
             ),
-            const Spacer(),
-            const IconButton(
+            Spacer(),
+            IconButton(
               onPressed: null,
               iconSize: 30.0,
               icon: Icon(Icons.notifications),

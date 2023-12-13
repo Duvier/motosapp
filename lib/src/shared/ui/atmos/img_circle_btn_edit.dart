@@ -8,8 +8,8 @@ class ImgCircleBtnEditAtom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: const [
+    return const Stack(
+      children: [
         Align(
           alignment: Alignment.bottomRight,
           child: CircleAvatar(

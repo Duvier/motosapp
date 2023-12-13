@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../shared/ui/atmos/card_base.dart';
+import '../../../../maintenance/presentation/ui/molecules/maintenance_card.dart';
 import '../../../domain/entities/motorcycle_entity.dart';
-import '../atoms/card.dart';
 import '../molecules/detail_motorcycle_header.dart';
 
 class DetailMotorcycleOrganism extends StatelessWidget {
@@ -15,29 +16,20 @@ class DetailMotorcycleOrganism extends StatelessWidget {
       children: [
         DetailMotorcycleHeaderMolecule(motorcycle: motorcycle),
         const SizedBox(height: 10.0),
+        const MaintenanceCard(),
+        const SizedBox(height: 10.0),
         Expanded(
-          child: CardAtom(
-            padding: const EdgeInsets.all(15.0),
+          child: CardBaseAtom(
             child: ListView(
               children: const [
                 Item(),
-                Divider(),
+                Divider(height: 2),
                 Item(),
-                Divider(),
+                Divider(height: 2),
                 Item(),
-                Divider(),
+                Divider(height: 2),
                 Item(),
-                Divider(),
-                Item(),
-                Divider(),
-                Item(),
-                Divider(),
-                Item(),
-                Divider(),
-                Item(),
-                Divider(),
-                Item(),
-                Divider(),
+                Divider(height: 2),
                 Item(),
               ],
             ),
@@ -56,8 +48,9 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ListTile(
-      title: Text('Nombre del mantenimiento'),
-      trailing: Text('3'),
+      title: Text('Cambio de aceite'),
+      subtitle: Text('10 de diciembre del 2023'),
+      trailing: Text('\$ 130.000'),
     );
   }
 }

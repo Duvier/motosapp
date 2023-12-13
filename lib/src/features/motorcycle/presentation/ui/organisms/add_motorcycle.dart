@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../shared/ui/atmos/card_base.dart';
 import '../../../../../shared/ui/atmos/snack_bars_custom.dart';
 import '../../../../../shared/usescases/usecase.dart';
 import '../../bloc/motorcycle_bloc.dart';
-import '../atoms/card.dart';
 import '../molecules/form_motorcycle.dart';
 
 class AddMotorcycle extends StatefulWidget {
@@ -32,8 +32,7 @@ class _AddMotorcycleState extends State<AddMotorcycle> {
 
   @override
   Widget build(BuildContext context) {
-    return CardAtom(
-      padding: const EdgeInsets.all(20.0),
+    return CardBaseAtom(
       child: Column(
         children: [
           FormMotorcycle(
