@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart';
+import 'package:motosapp/src/features/motorcycle/domain/usecases/params_motorcycle.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/save_motorcycle_use_case.dart';
-import 'package:motosapp/src/shared/usescases/usecase.dart';
 
 import 'save_motorcycle_use_case_test.mocks.dart';
 

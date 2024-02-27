@@ -5,10 +5,11 @@ import 'package:mockito/mockito.dart';
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/delete_motorcycle_use_case.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/get_list_motorcycle_use_case.dart';
+import 'package:motosapp/src/features/motorcycle/domain/usecases/params_motorcycle.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/save_motorcycle_use_case.dart';
 import 'package:motosapp/src/features/motorcycle/presentation/bloc/motorcycle_bloc.dart';
 import 'package:motosapp/src/shared/errors/failures.dart';
-import 'package:motosapp/src/shared/usescases/usecase.dart';
+import 'package:motosapp/src/shared/utils/no_params.dart';
 
 import 'motorcycle_bloc_test.mocks.dart';
 

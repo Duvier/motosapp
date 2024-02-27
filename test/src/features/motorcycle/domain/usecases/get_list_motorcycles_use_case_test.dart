@@ -5,7 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:motosapp/src/features/motorcycle/domain/entities/motorcycle_entity.dart';
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart';
 import 'package:motosapp/src/features/motorcycle/domain/usecases/get_list_motorcycle_use_case.dart';
-import 'package:motosapp/src/shared/usescases/usecase.dart';
+import 'package:motosapp/src/shared/utils/no_params.dart';
 
 import 'get_list_motorcycles_use_case_test.mocks.dart';
 

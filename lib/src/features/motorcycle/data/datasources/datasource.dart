@@ -1,4 +1,4 @@
-import '../../../../shared/usescases/usecase.dart';
+import '../../domain/usecases/params_motorcycle.dart';
 import '../models/motorcycle_model.dart';
 
 abstract class DataSource {

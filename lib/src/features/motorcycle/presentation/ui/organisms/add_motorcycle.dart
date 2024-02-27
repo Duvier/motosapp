@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../shared/ui/atmos/card_base.dart';
 import '../../../../../shared/ui/atmos/snack_bars_custom.dart';
-import '../../../../../shared/usescases/usecase.dart';
+import '../../../domain/usecases/params_motorcycle.dart';
 import '../../bloc/motorcycle_bloc.dart';
 import '../molecules/form_motorcycle.dart';
 

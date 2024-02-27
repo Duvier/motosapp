@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../shared/usescases/usecase.dart';
+import '../../../../shared/utils/no_params.dart';
 import '../../domain/entities/motorcycle_entity.dart';
 import '../../domain/usecases/delete_motorcycle_use_case.dart';
 import '../../domain/usecases/get_list_motorcycle_use_case.dart';
+import '../../domain/usecases/params_motorcycle.dart';
 import '../../domain/usecases/save_motorcycle_use_case.dart';
 
 part 'motorcycle_event.dart';

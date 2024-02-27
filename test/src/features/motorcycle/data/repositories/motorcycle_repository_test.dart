@@ -6,9 +6,9 @@ import 'package:motosapp/src/features/motorcycle/data/datasources/datasource.dar
 import 'package:motosapp/src/features/motorcycle/data/models/motorcycle_model.dart';
 import 'package:motosapp/src/features/motorcycle/data/repositories/motorcycle_repository_impl.dart';
 import 'package:motosapp/src/features/motorcycle/domain/repositories/motorcycle_repository.dart';
+import 'package:motosapp/src/features/motorcycle/domain/usecases/params_motorcycle.dart';
 import 'package:motosapp/src/shared/errors/exceptions.dart';
 import 'package:motosapp/src/shared/errors/failures.dart';
-import 'package:motosapp/src/shared/usescases/usecase.dart';
 
 import 'motorcycle_repository_test.mocks.dart';
 

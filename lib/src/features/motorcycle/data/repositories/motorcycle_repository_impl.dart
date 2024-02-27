@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../shared/errors/exceptions.dart';
 import '../../../../shared/errors/failures.dart';
-import '../../../../shared/usescases/usecase.dart';
 import '../../domain/repositories/motorcycle_repository.dart';
+import '../../domain/usecases/params_motorcycle.dart';
 import '../datasources/datasource.dart';
 import '../models/motorcycle_model.dart';
 

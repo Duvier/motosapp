@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../../shared/errors/exceptions.dart';
-import '../../../../shared/usescases/usecase.dart';
+import '../../domain/usecases/params_motorcycle.dart';
 import '../models/motorcycle_model.dart';
 import 'datasource.dart';
 
