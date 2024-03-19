@@ -3,13 +3,13 @@ import 'package:motosapp/src/shared/utils/validations.dart';
 
 import '../../../../../shared/ui/atmos/input.dart';
 
-class FormMotorcycle extends StatelessWidget {
+class FormMaintenanceType extends StatelessWidget {
   final GlobalKey formKey;
   final TextEditingController? nameController;
   final TextEditingController? brandController;
   final TextEditingController? modelController;
   final TextEditingController? cylinderCapacityController;
-  const FormMotorcycle({
+  const FormMaintenanceType({
     Key? key,
     required this.formKey,
     this.nameController,
@@ -31,32 +31,40 @@ class FormMotorcycle extends StatelessWidget {
             labelText: 'Nombre',
           ),
           const SizedBox(height: 15.0),
-          InputAtom(
-            controller: brandController,
-            validator: (value) => validateInputRequired(value, 'marca'),
-            hintText: 'Digite Marca',
-            labelText: 'Marca',
+          Row(
+            children: [
+              Flexible(
+                child: InputAtom(
+                  controller: brandController,
+                  validator: (value) => validateInputRequired(value, 'marca'),
+                  hintText: 'periodicityCant',
+                  labelText: 'periodicityCant',
+                ),
+              ),
+              const SizedBox(width: 10.0),
+              Flexible(
+                child: InputAtom(
+                  controller: modelController,
+                  validator: (value) => validateInputRequired(value, 'modelo'),
+                  hintText: 'periodicityTerm',
+                  labelText: 'periodicityTerm',
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 15.0),
           InputAtom(
             controller: modelController,
             validator: (value) => validateInputRequired(value, 'modelo'),
-            hintText: 'Digite Modelo',
-            labelText: 'Modelo',
+            hintText: 'advanceNotificationCant',
+            labelText: 'advanceNotificationCant',
           ),
           const SizedBox(height: 15.0),
           InputAtom(
-            controller: cylinderCapacityController,
-            validator: (value) {
-              final isRequired = validateInputRequired(value, 'cilindraje');
-              final isIntValid = validateInputNumber(value, 'cilindraje');
-              if (isRequired != null) return isRequired;
-              if (isIntValid != null) return isIntValid;
-              return null;
-            },
-            keyboardType: TextInputType.number,
-            hintText: 'Digite Cilindraje',
-            labelText: 'Cilindraje',
+            controller: modelController,
+            validator: (value) => validateInputRequired(value, 'modelo'),
+            hintText: 'advanceNotificationTerm',
+            labelText: 'advanceNotificationTerm',
           ),
         ],
       ),

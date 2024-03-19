@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+import '../features/maintenance/presentation/ui/pages/form_maintenance_type_page.dart';
 import './routes.dart';
 import '../features/dashboard/presentation/ui/pages/dashboard_page.dart';
 import '../features/motorcycle/presentation/ui/pages/detail_motorcycle_page.dart';
@@ -27,6 +28,11 @@ final router = GoRouter(
       name: Routes.detailMotorcycle,
       path: '/detail_motorcycle/:id',
       builder: (_, state) => DetailMotorcyclePage(id: state.params['id'] ?? ''),
+    ),
+    GoRoute(
+      name: Routes.addMaintenanceType,
+      path: '/add_maintenance_type',
+      builder: (_, __) => const FormMaintenanceTypePage(),
     ),
   ],
 );

@@ -41,10 +41,14 @@ class BottomBarMolecule extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 30.0),
-            const IconButton(
+            IconButton(
               iconSize: 30.0,
-              icon: Icon(Icons.build),
-              onPressed: null,
+              icon: const Icon(Icons.build),
+              onPressed: () => navigateTo(
+                NavigatorKeys.bottomNavigationBarFirstItem.currentContext ??
+                    context,
+                Routes.addMaintenanceType,
+              ),
             ),
             const IconButton(
               iconSize: 30.0,

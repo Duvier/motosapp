@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../shared/ui/app_colors.dart';
+import '../app_colors.dart';
 
 class InputAtom extends StatelessWidget {
   final String hintText;
